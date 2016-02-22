@@ -1,0 +1,70 @@
+---
+title       : BMI Calculator
+subtitle    : DevelopingData Product Project
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax, quiz, bootstrap]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## BMI: Body Mass Index
+
+<p>
+Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m<sup>2</sup>, resulting from mass in kilograms and height in metres.</p>
+
+## BMI categories
+
+* Underweight = <18.5
+* Normal weight = 18.5-24.9 
+* Overweight = 25-29.9 
+* Obesity = BMI of 30 or greater
+
+--- 
+
+## BMI chart
+
+<div style="position: absolute; left: 70px; top: 150px;">
+
+<p><img style="float: left;margin-right:40px;" src="assets\img\BMIChart.gif" alt="" height="400" width="500">
+
+<a style="color:#6495ED;" href="http://www.diabetes.co.uk/bmi.html">Link to picture source</a><br/>
+<a style="color:#6495ED;" href="https://en.wikipedia.org/wiki/Body_mass_index">BMI wiki</a>
+</p>
+
+</div>
+
+---
+
+## Function Used to Calculate BMI & Example
+
+```{r}
+BMI<-function(weight,height) {round(weight/(height^2),1)}
+BMI_function<-function(weight,height){
+    BMI_value<-weight/(height^2)
+    ifelse(BMI_value<18.5,"underweight, go eat something!",
+    ifelse(BMI_value<25,"normal weight, keep eating what you are eating!",
+    ifelse(BMI_value<30,"overweight, stop watching tv and run!!", "obesity")))}
+```
+
+As an example, for body weight of 70 kg and height 1.7 m, the function gives:
+
+```{r}
+BMI(70, 1.7); BMI_function(70, 1.7)
+```
+
+---
+
+## Conclusion
+<br>
+The BMI is an attempt to quantify the amount of tissue mass (muscle, fat, and bone) in an individual, and then categorize that person as underweight, normal weight, overweight, or obese based on that value. BMI is proportional to mass and inversely proportional to the square of the height. It is easy to use and non-invasive. 
+
+BMI is typically reported in general physical exams although it is not very well scalable for very tall or very short people and also it does not account for ethnic origin or any particular medical condition of the person that can impact BMI.
+
+
+
+
+
